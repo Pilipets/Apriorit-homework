@@ -22,7 +22,7 @@
         <item>
          <widget class="QLabel" name="lbl_Client1">
           <property name="text">
-           <string>Client #A</string>
+           <string>Client #1</string>
           </property>
          </widget>
         </item>
@@ -39,7 +39,7 @@
         <item>
          <widget class="QLabel" name="lbl_Client2">
           <property name="text">
-           <string>Client #B</string>
+           <string>Client #2</string>
           </property>
          </widget>
         </item>
@@ -56,7 +56,7 @@
         <item>
          <widget class="QLabel" name="lbl_Client3">
           <property name="text">
-           <string>Client #C</string>
+           <string>Client #3</string>
           </property>
          </widget>
         </item>

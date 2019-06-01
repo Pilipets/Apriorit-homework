@@ -13,8 +13,9 @@ ChatWindow::ChatWindow(QWidget *parent) :
 
 
     this->Init();
-    for(auto client: clients)
+    for(auto client: clients){
         connect(client, &TcpClient::displayMessage, this, &ChatWindow::slotClientMessageReceived);
+    }
 
     connect(m_server, &TcpServer::displayMessage, this, &ChatWindow::slotServerMessageReceived);
 }

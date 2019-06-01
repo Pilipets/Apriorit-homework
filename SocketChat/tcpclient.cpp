@@ -46,10 +46,12 @@ bool TcpClient::connectedToServer() const
 void TcpClient::slotReadyRead()
 {
     MessageData receive;
-    if(!receive.read(m_socket))
-        return;
+    while(m_socket->bytesAvailable()){
+        if(!receive.read(m_socket))
+            continue;
 
-    emit displayMessage(QString(receive.senderName) + ": " + QString(receive.message));
+        emit displayMessage(QString(receive.senderName) + ": " + QString(receive.message));
+    }
 }
 
 void TcpClient::slotServerDisconnected()

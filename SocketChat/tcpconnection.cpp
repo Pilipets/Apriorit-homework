@@ -25,12 +25,14 @@ void TcpConnection::sendMessage(const MessageData &message)
 void TcpConnection::slotReadyRead()
 {
     MessageData receive;
-    if(!receive.read(m_socket))
-        return;
+    while(m_socket->bytesAvailable()){
+        if(!receive.read(m_socket))
+            continue;
 
-    //dynamic_cast<TcpServer*>(parent)->slotMessageReceived(receive);
+        //dynamic_cast<TcpServer*>(parent)->slotMessageReceived(receive);
 
-    emit clientMessageReceived(this, receive);
+        emit clientMessageReceived(this, receive);
+    }
 }
 
 void TcpConnection::slotClientDisconnected()
